@@ -1,0 +1,63 @@
+{
+  "Actions": [
+    {
+      "UUID": "com.karaar.macmonitor.cpu",
+      "Name": "Mac CPU Monitor",
+      "Tooltip": "CPU usage and temperature",
+      "Icon": "cpu.png",
+      "Controllers": [
+        "Information"
+      ],
+      "States": [
+        {
+          "Image": "cpu.png",
+          "TitleAlignment": "bottom",
+          "FontSize": "10"
+        }
+      ],
+      "Settings": {},
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "UUID": "com.karaar.macmonitor.gpu",
+      "Name": "Mac GPU Monitor",
+      "Tooltip": "GPU usage and temperature",
+      "Icon": "gpu.png",
+      "Controllers": [
+        "Information"
+      ],
+      "States": [
+        {
+          "Image": "gpu.png",
+          "TitleAlignment": "bottom",
+          "FontSize": "10"
+        }
+      ],
+      "Settings": {},
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    }
+  ],
+  "Version": "1.0.0",
+  "APIVersion": "1.0",
+  "Name": "Mac System Monitor",
+  "Category": "System Monitor",
+  "CategoryIcon": "icon.png",
+  "Description": "Mac CPU, GPU and temperature monitor",
+  "CodePathMac": "plugin/index.js",
+  "SDKVersion": 2,
+  "Author": "Karaar",
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "11.0"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "3.10.188.226"
+  },
+  "Nodejs": {
+    "Version": "20"
+  }
+}
