@@ -1,10 +1,10 @@
 {
   "name": "macmonitor-sdplugin",
-  "version": "1.0.0",
-  "description": "StreamDock plugin: live Mac CPU & GPU usage and temperature on a key (Apple Silicon)",
+  "version": "1.6.0",
+  "description": "StreamDock plugin: live Mac CPU, GPU, memory, storage, network and battery stats",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/validate.js"
   },
   "keywords": [
     "streamdock",
@@ -16,6 +16,10 @@
     "system-monitor",
     "cpu",
     "gpu",
+    "battery",
+    "memory",
+    "storage",
+    "network",
     "temperature",
     "macmon"
   ],

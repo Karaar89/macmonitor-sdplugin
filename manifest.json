@@ -2,10 +2,11 @@
   "Actions": [
     {
       "UUID": "com.karaar.macmonitor.cpu",
-      "Name": "Mac CPU Monitor",
-      "Tooltip": "CPU usage and temperature",
+      "Name": "Mac Performance Monitor",
+      "Tooltip": "Alternates CPU, GPU and RAM information",
       "Icon": "cpu.png",
       "Controllers": [
+        "Keypad",
         "Information"
       ],
       "States": [
@@ -16,35 +17,98 @@
         }
       ],
       "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
       "UserTitleEnabled": false,
       "SupportedInMultiActions": false
     },
     {
-      "UUID": "com.karaar.macmonitor.gpu",
+      "UUID": "com.karaar.macmonitor.processor",
+      "Name": "Mac CPU Monitor",
+      "Tooltip": "CPU usage and temperature",
+      "Icon": "cpu.png",
+      "Controllers": ["Information"],
+      "States": [{"Image": "cpu.png", "TitleAlignment": "bottom", "FontSize": "10"}],
+      "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "UUID": "com.karaar.macmonitor.graphics",
       "Name": "Mac GPU Monitor",
       "Tooltip": "GPU usage and temperature",
       "Icon": "gpu.png",
+      "Controllers": ["Information"],
+      "States": [{"Image": "gpu.png", "TitleAlignment": "bottom", "FontSize": "10"}],
+      "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "UUID": "com.karaar.macmonitor.ram",
+      "Name": "Mac RAM Monitor",
+      "Tooltip": "Memory usage and available memory",
+      "Icon": "icon.png",
+      "Controllers": ["Information"],
+      "States": [{"Image": "icon.png", "TitleAlignment": "bottom", "FontSize": "10"}],
+      "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "UUID": "com.karaar.macmonitor.battery",
+      "Name": "Mac Battery Monitor",
+      "Tooltip": "Battery level, charging state and time remaining",
+      "Icon": "battery.png",
       "Controllers": [
+        "Keypad",
         "Information"
       ],
       "States": [
         {
-          "Image": "gpu.png",
+          "Image": "battery.png",
           "TitleAlignment": "bottom",
           "FontSize": "10"
         }
       ],
       "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "UUID": "com.karaar.macmonitor.disk",
+      "Name": "Mac Storage Monitor",
+      "Tooltip": "Mounted storage usage and free space",
+      "Icon": "icon.png",
+      "Controllers": ["Keypad", "Information"],
+      "States": [{"Image": "icon.png", "TitleAlignment": "bottom", "FontSize": "10"}],
+      "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
+      "UserTitleEnabled": false,
+      "SupportedInMultiActions": false
+    },
+    {
+      "UUID": "com.karaar.macmonitor.network",
+      "Name": "Mac Network Monitor",
+      "Tooltip": "Live download and upload speed",
+      "Icon": "icon.png",
+      "Controllers": ["Keypad", "Information"],
+      "States": [{"Image": "icon.png", "TitleAlignment": "bottom", "FontSize": "10"}],
+      "Settings": {},
+      "PropertyInspectorPath": "property-inspector/index.html",
       "UserTitleEnabled": false,
       "SupportedInMultiActions": false
     }
   ],
-  "Version": "1.0.0",
+  "Version": "1.6.0",
   "APIVersion": "1.0",
   "Name": "Mac System Monitor",
   "Category": "System Monitor",
   "CategoryIcon": "icon.png",
-  "Description": "Mac CPU, GPU and temperature monitor",
+  "Description": "Combined and standalone Mac CPU, GPU, RAM, storage, network and battery monitors",
   "CodePathMac": "plugin/index.js",
   "SDKVersion": 2,
   "Author": "Karaar",

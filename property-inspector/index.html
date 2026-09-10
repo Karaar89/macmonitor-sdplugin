@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mac Monitor Settings</title>
+  <style>
+    body { margin: 14px; color: #eee; background: #2d2d2d; font: 13px -apple-system, BlinkMacSystemFont, sans-serif; }
+    h3 { margin: 0 0 14px; }
+    label { display: grid; grid-template-columns: 1fr 80px; align-items: center; gap: 10px; margin: 10px 0; }
+    input { box-sizing: border-box; width: 80px; padding: 6px; color: #fff; background: #444; border: 1px solid #666; border-radius: 4px; }
+    small { display: block; margin-top: 14px; color: #bbb; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h3>Color and Alert Thresholds</h3>
+  <label>Warning color starts at %<input id="warningAt" type="number" min="1" max="99" value="55"></label>
+  <label>Critical color starts at %<input id="criticalAt" type="number" min="1" max="100" value="75"></label>
+  <label>Temperature alert °C<input id="temperatureAlert" type="number" min="40" max="120" value="80"></label>
+  <label>Battery warning %<input id="batteryWarning" type="number" min="1" max="99" value="50"></label>
+  <label>Battery alert %<input id="batteryAlert" type="number" min="1" max="99" value="20"></label>
+  <small>At the temperature limit or below the battery alert level, the key alternates between alert colors every third of a second. Settings are saved per key.</small>
+  <script>
+    let socket, context;
+    let settings = {};
+    const fields = ["warningAt", "criticalAt", "temperatureAlert", "batteryWarning", "batteryAlert"];
+    function connectElgatoStreamDeckSocket(port, uuid, registerEvent, info, actionInfo) {
+      context = uuid;
+      try {
+        const action = JSON.parse(actionInfo || "{}");
+        settings = (action.payload && action.payload.settings) || {};
+      } catch (_) {}
+      fields.forEach(function (id) {
+        if (settings[id] !== undefined) document.getElementById(id).value = settings[id];
+      });
+      socket = new WebSocket("ws://127.0.0.1:" + port);
+      socket.onopen = function () { socket.send(JSON.stringify({ event: registerEvent, uuid: uuid })); };
+    }
+    fields.forEach(function (id) {
+      document.getElementById(id).addEventListener("change", function () {
+        settings[id] = Number(this.value);
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          socket.send(JSON.stringify({ event: "setSettings", context: context, payload: settings }));
+        }
+      });
+    });
+  </script>
+</body>
+</html>
