@@ -1,14 +1,26 @@
 {
-  "name": "plugin",
+  "name": "macmonitor-sdplugin",
   "version": "1.0.0",
-  "description": "",
+  "description": "StreamDock plugin: live Mac CPU & GPU usage and temperature on a key (Apple Silicon)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "streamdock",
+    "stream-deck",
+    "ajazz",
+    "mirabox",
+    "macos",
+    "apple-silicon",
+    "system-monitor",
+    "cpu",
+    "gpu",
+    "temperature",
+    "macmon"
+  ],
+  "author": "Karaar",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "@napi-rs/canvas": "^1.0.9",
